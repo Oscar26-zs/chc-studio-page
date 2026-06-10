@@ -19,3 +19,15 @@ import '../styles/global.css';
     <slot />
   </body>
 </html>
+
+<script>
+  import { Trail } from "mouse-animations";
+
+  const trail = new Trail({
+    color: '#83fbcd',
+    size: 5,
+    length: 20,
+    decay: 0.05,
+    blur: 0,
+  })
+</script>

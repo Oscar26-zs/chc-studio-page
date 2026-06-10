@@ -14,6 +14,9 @@ importers:
       astro:
         specifier: ^6.4.5
         version: 6.4.5(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.61.1)
+      mouse-animations:
+        specifier: ^1.0.0
+        version: 1.0.0
       tailwindcss:
         specifier: ^4.3.0
         version: 4.3.0
@@ -1213,6 +1216,15 @@ packages:
 
   micromark@4.0.2:
     resolution: {integrity: sha512-zpe98Q6kvavpCr1NPVSCMebCKfD7CA2NqZ+rykeNhONIJBpc1tFKt9hucLGwha3jNTNI8lHpctWJWoimVF4PfA==}
+
+  mouse-animations@1.0.0:
+    resolution: {integrity: sha512-WgDjdt1AMw5fNKYWDW8mWiys9XPHa+4V43MR/Mur/wopZQ64glyHqP2+tiptHKqNQBMWaKo6/hc1F0Zvcw1aFg==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      jquery: '>=3.0.0'
+    peerDependenciesMeta:
+      jquery:
+        optional: true
 
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
@@ -2920,6 +2932,8 @@ snapshots:
       micromark-util-types: 2.0.2
     transitivePeerDependencies:
       - supports-color
+
+  mouse-animations@1.0.0: {}
 
   mrmime@2.0.1: {}
 
