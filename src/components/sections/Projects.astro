@@ -1,4 +1,5 @@
 ---
+import projects from "../../data/projects.json";
 ---
 
 <section id="proyectos" class="py-24 md:py-32 px-6 overflow-hidden">
@@ -9,58 +10,22 @@
   </div>
 
   <div class="projects-flow max-w-[1120px] mx-auto">
-
-    <article class="project reveal grid grid-cols-1 gap-9 items-center" style="--stagger:0;">
-      <div class="project-info">
-        <div class="project-idx font-black text-accent/15 mb-3" style="font-size:clamp(48px,4.5vw,64px); line-height:1;">01</div>
-        <span class="block text-[12px] font-bold tracking-[2.4px] uppercase text-accent mb-3">Página web</span>
-        <h3 class="font-bold uppercase text-white" style="font-size:clamp(24px,2.8vw,34px); line-height:1.25; letter-spacing:1px;">Presencia digital para un negocio local</h3>
-        <p class="mt-4 text-[15px] font-light leading-[1.7] text-white/55 max-w-[440px]">Sitio web a medida, rápido y adaptado a celular, diseñado para que los clientes encuentren el negocio y escriban directo por WhatsApp.</p>
-        <ul class="project-meta flex flex-wrap gap-x-3 gap-y-2 mt-5 list-none">
-          <li>Diseño a medida</li>
-          <li>SEO</li>
-          <li>Responsive</li>
-        </ul>
-      </div>
-      <div class="project-media relative">
-        <div class="placeholder">Captura del proyecto 01</div>
-      </div>
-    </article>
-
-    <article class="project flip reveal grid grid-cols-1 gap-9 items-center" style="--stagger:0;">
-      <div class="project-info">
-        <div class="project-idx font-black text-accent/15 mb-3" style="font-size:clamp(48px,4.5vw,64px); line-height:1;">02</div>
-        <span class="block text-[12px] font-bold tracking-[2.4px] uppercase text-accent mb-3">Sistema web</span>
-        <h3 class="font-bold uppercase text-white" style="font-size:clamp(24px,2.8vw,34px); line-height:1.25; letter-spacing:1px;">Gestión del negocio desde cualquier lugar</h3>
-        <p class="mt-4 text-[15px] font-light leading-[1.7] text-white/55 max-w-[440px]">Sistema a medida con panel de administración, control de usuarios y reportes — reemplazó planillas manuales por una operación centralizada.</p>
-        <ul class="project-meta flex flex-wrap gap-x-3 gap-y-2 mt-5 list-none">
-          <li>Panel admin</li>
-          <li>Usuarios y roles</li>
-          <li>Reportes</li>
-        </ul>
-      </div>
-      <div class="project-media relative">
-        <div class="placeholder">Captura del proyecto 02</div>
-      </div>
-    </article>
-
-    <article class="project reveal grid grid-cols-1 gap-9 items-center" style="--stagger:0;">
-      <div class="project-info">
-        <div class="project-idx font-black text-accent/15 mb-3" style="font-size:clamp(48px,4.5vw,64px); line-height:1;">03</div>
-        <span class="block text-[12px] font-bold tracking-[2.4px] uppercase text-accent mb-3">Automatización</span>
-        <h3 class="font-bold uppercase text-white" style="font-size:clamp(24px,2.8vw,34px); line-height:1.25; letter-spacing:1px;">Menos tareas repetitivas, más tiempo</h3>
-        <p class="mt-4 text-[15px] font-light leading-[1.7] text-white/55 max-w-[440px]">Flujo automático que conecta las herramientas que el negocio ya usaba, eliminando trabajo manual y reduciendo errores.</p>
-        <ul class="project-meta flex flex-wrap gap-x-3 gap-y-2 mt-5 list-none">
-          <li>Integraciones</li>
-          <li>Flujos automáticos</li>
-          <li>Soporte</li>
-        </ul>
-      </div>
-      <div class="project-media relative">
-        <div class="placeholder">Captura del proyecto 03</div>
-      </div>
-    </article>
-
+    {projects.map((p) => (
+      <article class={`project reveal grid grid-cols-1 gap-9 items-center${p.flip ? " flip" : ""}`} style="--stagger:0;">
+        <div class="project-info">
+          <div class="project-idx font-black text-accent/15 mb-3" style="font-size:clamp(48px,4.5vw,64px); line-height:1;">{String(p.id).padStart(2, "0")}</div>
+          <span class="block text-[12px] font-bold tracking-[2.4px] uppercase text-accent mb-3">{p.category}</span>
+          <h3 class="font-bold uppercase text-white" style="font-size:clamp(24px,2.8vw,34px); line-height:1.25; letter-spacing:1px;">{p.title}</h3>
+          <p class="mt-4 text-[15px] font-light leading-[1.7] text-white/55 max-w-[440px]">{p.description}</p>
+          <ul class="project-meta flex flex-wrap gap-x-3 gap-y-2 mt-5 list-none">
+            {p.tags.map((tag) => <li>{tag}</li>)}
+          </ul>
+        </div>
+        <div class="project-media relative">
+          <div class="placeholder">Captura del proyecto {String(p.id).padStart(2, "0")}</div>
+        </div>
+      </article>
+    ))}
   </div>
 </section>
 

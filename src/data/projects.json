@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "category": "Página web",
+    "title": "Presencia digital para un negocio local",
+    "description": "Sitio web a medida, rápido y adaptado a celular, diseñado para que los clientes encuentren el negocio y escriban directo por WhatsApp.",
+    "tags": ["Diseño a medida", "SEO", "Responsive"],
+    "flip": false
+  },
+  {
+    "id": 2,
+    "category": "Sistema web",
+    "title": "Gestión del negocio desde cualquier lugar",
+    "description": "Sistema a medida con panel de administración, control de usuarios y reportes — reemplazó planillas manuales por una operación centralizada.",
+    "tags": ["Panel admin", "Usuarios y roles", "Reportes"],
+    "flip": true
+  },
+  {
+    "id": 3,
+    "category": "Automatización",
+    "title": "Menos tareas repetitivas, más tiempo",
+    "description": "Flujo automático que conecta las herramientas que el negocio ya usaba, eliminando trabajo manual y reduciendo errores.",
+    "tags": ["Integraciones", "Flujos automáticos", "Soporte"],
+    "flip": false
+  }
+]
