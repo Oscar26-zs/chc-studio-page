@@ -1,0 +1,60 @@
+---
+---
+
+<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 lg:px-16">
+  <a href="#inicio" aria-label="CHC Studio — inicio" class="flex items-center gap-3 no-underline">
+    <img src="/assets/chc-symbol.png" alt="CHC Studio" class="h-10 w-auto block" />
+    <span class="font-black text-base tracking-widest uppercase text-white whitespace-nowrap">
+      CHC <span class="text-accent">Studio</span>
+    </span>
+  </a>
+
+  <ul class="nav-links liquid-glass hidden md:inline-flex items-center gap-1 rounded-full px-1.5 py-1.5 list-none">
+    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+  </ul>
+
+  <a href="#contacto" class="ghost-button !py-3 !px-5 flex items-center gap-2">
+    Hablemos
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 12 L12 4 M5.5 4 H12 V10.5"></path>
+    </svg>
+  </a>
+</nav>
+
+<style>
+  .navbar {
+    background: transparent;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(26, 30, 41, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.10);
+  }
+  .nav-link {
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.96px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.60);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  .nav-link:hover { color: #ffffff; }
+</style>
+
+<script>
+  const nav = document.getElementById('navbar');
+  function onScroll() {
+    nav?.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

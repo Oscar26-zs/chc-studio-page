@@ -1,0 +1,105 @@
+---
+---
+
+<header id="inicio" class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6 pt-36 pb-20">
+  <div class="blob-left" aria-hidden="true"></div>
+  <div class="blob-right" aria-hidden="true"></div>
+  <div class="dot-grid" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-[980px] mx-auto">
+    <h1 class="hero-headline font-bold uppercase text-white">
+      <span class="line block">Tu negocio</span>
+      <span class="line block">merece</span>
+      <span class="line block">mejor tecnología</span>
+    </h1>
+
+    <p class="hero-anim mx-auto mt-7 max-w-[560px] font-light text-white/60 leading-relaxed tracking-wide">
+      Desarrollamos páginas web, sistemas y automatizaciones<br />
+      para empresas y negocios en Costa Rica.
+    </p>
+
+    <div class="hero-anim flex flex-wrap items-center justify-center gap-x-7 gap-y-4 mt-11">
+      <a href="#servicios" class="ghost-button">Ver nuestros servicios</a>
+      <a href="#contacto" class="hero-link">Contáctanos</a>
+    </div>
+
+    <div class="hero-anim inline-flex flex-wrap justify-center gap-x-16 gap-y-8 mt-16 pt-10 border-t border-white/[0.08]">
+      <div>
+        <div class="stat-value font-bold text-accent" style="font-size: clamp(30px,3vw,40px); line-height:1; letter-spacing:0.5px;">2</div>
+        <div class="mt-2 text-[12px] font-normal uppercase tracking-[1.2px] text-white/40">Clientes activos</div>
+      </div>
+      <div>
+        <div class="stat-value font-bold text-accent" style="font-size: clamp(30px,3vw,40px); line-height:1; letter-spacing:0.5px;">3</div>
+        <div class="mt-2 text-[12px] font-normal uppercase tracking-[1.2px] text-white/40">Proyectos entregados</div>
+      </div>
+      <div>
+        <div class="stat-value font-bold text-accent" style="font-size: clamp(30px,3vw,40px); line-height:1; letter-spacing:0.5px;">100%</div>
+        <div class="mt-2 text-[12px] font-normal uppercase tracking-[1.2px] text-white/40">Satisfacción garantizada</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .blob-left, .blob-right {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .blob-left {
+    width: 560px; height: 560px;
+    left: -160px; top: 18%;
+    background: radial-gradient(circle, #01c38e, transparent 70%);
+    opacity: 0.08;
+    filter: blur(80px);
+  }
+  .blob-right {
+    width: 640px; height: 640px;
+    right: -200px; bottom: -10%;
+    background: radial-gradient(circle, #132d46, transparent 70%);
+    opacity: 0.15;
+    filter: blur(70px);
+  }
+  .dot-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .hero-headline {
+    font-size: clamp(3.2rem, 8.5vw, 80px);
+    line-height: 0.95;
+    letter-spacing: 1.6px;
+    text-wrap: balance;
+  }
+  .hero-link {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.17px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.60);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 4px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+  .hero-link:hover { color: #01c38e; border-color: #01c38e; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-anim {
+      opacity: 0;
+      animation: fade-up-blur 0.7s cubic-bezier(0.25,0.1,0.25,1) forwards;
+    }
+    .hero-headline .line {
+      opacity: 0;
+      animation: fade-up-blur 0.7s cubic-bezier(0.25,0.1,0.25,1) forwards;
+    }
+    .hero-headline .line:nth-child(1) { animation-delay: 0.15s; }
+    .hero-headline .line:nth-child(2) { animation-delay: 0.27s; }
+    .hero-headline .line:nth-child(3) { animation-delay: 0.39s; }
+    .hero-anim:nth-of-type(1) { animation-delay: 0.65s; }
+    .hero-anim:nth-of-type(2) { animation-delay: 0.85s; }
+    .hero-anim:nth-of-type(3) { animation-delay: 1.05s; }
+  }
+</style>

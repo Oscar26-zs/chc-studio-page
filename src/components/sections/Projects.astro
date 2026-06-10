@@ -1,0 +1,128 @@
+---
+---
+
+<section id="proyectos" class="py-24 md:py-32 px-6 overflow-hidden">
+  <div class="text-center max-w-[760px] mx-auto mb-16">
+    <span class="reveal block text-[12px] font-bold tracking-[3px] uppercase text-accent mb-4">Proyectos</span>
+    <h2 class="reveal font-bold uppercase text-white" style="--stagger:1; font-size:clamp(2.4rem,5vw,60px); line-height:1.2; letter-spacing:1.2px;">Trabajos realizados</h2>
+    <p class="reveal mt-4 font-light text-white/60 leading-relaxed max-w-[560px] mx-auto" style="--stagger:2;">Una muestra de lo que hemos construido para negocios como el tuyo.</p>
+  </div>
+
+  <div class="projects-flow max-w-[1120px] mx-auto">
+
+    <article class="project reveal grid grid-cols-1 gap-9 items-center" style="--stagger:0;">
+      <div class="project-info">
+        <div class="project-idx font-black text-accent/15 mb-3" style="font-size:clamp(48px,4.5vw,64px); line-height:1;">01</div>
+        <span class="block text-[12px] font-bold tracking-[2.4px] uppercase text-accent mb-3">Página web</span>
+        <h3 class="font-bold uppercase text-white" style="font-size:clamp(24px,2.8vw,34px); line-height:1.25; letter-spacing:1px;">Presencia digital para un negocio local</h3>
+        <p class="mt-4 text-[15px] font-light leading-[1.7] text-white/55 max-w-[440px]">Sitio web a medida, rápido y adaptado a celular, diseñado para que los clientes encuentren el negocio y escriban directo por WhatsApp.</p>
+        <ul class="project-meta flex flex-wrap gap-x-3 gap-y-2 mt-5 list-none">
+          <li>Diseño a medida</li>
+          <li>SEO</li>
+          <li>Responsive</li>
+        </ul>
+      </div>
+      <div class="project-media relative">
+        <div class="placeholder">Captura del proyecto 01</div>
+      </div>
+    </article>
+
+    <article class="project flip reveal grid grid-cols-1 gap-9 items-center" style="--stagger:0;">
+      <div class="project-info">
+        <div class="project-idx font-black text-accent/15 mb-3" style="font-size:clamp(48px,4.5vw,64px); line-height:1;">02</div>
+        <span class="block text-[12px] font-bold tracking-[2.4px] uppercase text-accent mb-3">Sistema web</span>
+        <h3 class="font-bold uppercase text-white" style="font-size:clamp(24px,2.8vw,34px); line-height:1.25; letter-spacing:1px;">Gestión del negocio desde cualquier lugar</h3>
+        <p class="mt-4 text-[15px] font-light leading-[1.7] text-white/55 max-w-[440px]">Sistema a medida con panel de administración, control de usuarios y reportes — reemplazó planillas manuales por una operación centralizada.</p>
+        <ul class="project-meta flex flex-wrap gap-x-3 gap-y-2 mt-5 list-none">
+          <li>Panel admin</li>
+          <li>Usuarios y roles</li>
+          <li>Reportes</li>
+        </ul>
+      </div>
+      <div class="project-media relative">
+        <div class="placeholder">Captura del proyecto 02</div>
+      </div>
+    </article>
+
+    <article class="project reveal grid grid-cols-1 gap-9 items-center" style="--stagger:0;">
+      <div class="project-info">
+        <div class="project-idx font-black text-accent/15 mb-3" style="font-size:clamp(48px,4.5vw,64px); line-height:1;">03</div>
+        <span class="block text-[12px] font-bold tracking-[2.4px] uppercase text-accent mb-3">Automatización</span>
+        <h3 class="font-bold uppercase text-white" style="font-size:clamp(24px,2.8vw,34px); line-height:1.25; letter-spacing:1px;">Menos tareas repetitivas, más tiempo</h3>
+        <p class="mt-4 text-[15px] font-light leading-[1.7] text-white/55 max-w-[440px]">Flujo automático que conecta las herramientas que el negocio ya usaba, eliminando trabajo manual y reduciendo errores.</p>
+        <ul class="project-meta flex flex-wrap gap-x-3 gap-y-2 mt-5 list-none">
+          <li>Integraciones</li>
+          <li>Flujos automáticos</li>
+          <li>Soporte</li>
+        </ul>
+      </div>
+      <div class="project-media relative">
+        <div class="placeholder">Captura del proyecto 03</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<style>
+  .projects-flow {
+    display: grid;
+    gap: 96px;
+  }
+  @media (min-width: 900px) { .projects-flow { gap: 140px; } }
+
+  @media (min-width: 900px) {
+    .project { grid-template-columns: 1fr 1.1fr; gap: 72px; }
+    .project.flip .project-media { order: -1; }
+  }
+
+  .project-meta li {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .project-meta li + li::before {
+    content: '';
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: #01c38e;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 2px,
+      transparent 2px,
+      transparent 12px
+    );
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.5px;
+  }
+  .project-media::after {
+    content: '';
+    position: absolute;
+    inset: auto 10% -28px 10%;
+    height: 40px;
+    background: radial-gradient(ellipse, #01c38e 0%, transparent 70%);
+    opacity: 0.10;
+    filter: blur(18px);
+    pointer-events: none;
+  }
+</style>
