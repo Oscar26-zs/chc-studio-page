@@ -1,22 +1,22 @@
 ---
 ---
 
-<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 lg:px-16">
-  <a href="#inicio" aria-label="CHC Studio — inicio" class="flex items-center gap-3 no-underline">
-    <img src="/assets/chc-symbol.png" alt="CHC Studio" class="h-10 w-auto block" />
+<nav id="navbar" class="navbar fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-10 py-4 lg:px-16 w-[94%] max-w-7xl">
+  <a href="#inicio" aria-label="CHC Studio — inicio" class="flex items-center gap-3 no-underline shrink-0">
+    <img src="/assets/chc-symbol.png" alt="CHC Studio" class="h-9 w-auto block" />
     <span class="font-black text-base tracking-widest uppercase text-white whitespace-nowrap">
       CHC <span class="text-accent">Studio</span>
     </span>
   </a>
 
   <ul class="nav-links liquid-glass hidden md:inline-flex items-center gap-1 rounded-full px-1.5 py-1.5 list-none">
-    <li><a href="#servicios" class="nav-link">Servicios</a></li>
-    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+    <li><a href="#nosotros" class="nav-link" data-section="nosotros">Nosotros</a></li>
+    <li><a href="#proyectos" class="nav-link" data-section="proyectos">Proyectos</a></li>
+    <li><a href="#servicios" class="nav-link" data-section="servicios">Servicios</a></li>
+    <li><a href="#contacto" class="nav-link" data-section="contacto">Contacto</a></li>
   </ul>
 
-  <a href="#contacto" class="ghost-button !py-3 !px-5 flex items-center gap-2">
+  <a href="#contacto" class="ghost-button !py-2.5 !px-5 flex items-center gap-2 shrink-0">
     Hablemos
     <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 12 L12 4 M5.5 4 H12 V10.5"></path>
@@ -27,34 +27,107 @@
 <style>
   .navbar {
     background: transparent;
-    transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    transition:
+      max-width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      border-radius 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      padding-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      padding-right 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      padding-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      padding-bottom 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      background 0.7s ease,
+      border-color 0.7s ease,
+      backdrop-filter 0.7s ease,
+      box-shadow 0.7s ease;
   }
+
   .navbar.scrolled {
-    background: rgba(26, 30, 41, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.10);
+    background: rgba(26, 30, 41, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 9999px;
+    border-color: rgba(255, 255, 255, 0.10);
+    max-width: 1100px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 1px 0 rgba(255, 255, 255, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
+
   .nav-link {
     display: inline-block;
-    padding: 9px 16px;
+    padding: 8px 15px;
     border-radius: 9999px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.96px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.60);
+    color: rgba(255, 255, 255, 0.55);
     text-decoration: none;
-    transition: color 0.25s ease;
+    transition: color 0.25s ease, background 0.25s ease;
   }
   .nav-link:hover { color: #ffffff; }
+  .nav-link.active {
+    background: rgba(255, 255, 255, 0.11);
+    color: #ffffff;
+  }
 </style>
 
 <script>
-  const nav = document.getElementById('navbar');
+  const nav = document.getElementById('navbar')!;
+
   function onScroll() {
-    nav?.classList.toggle('scrolled', window.scrollY > 40);
+    nav.classList.toggle('scrolled', window.scrollY > 60);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  const sections = document.querySelectorAll<HTMLElement>('section[id], div[id]');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
+
+  function setActive(id: string) {
+    navLinks.forEach(link => {
+      const isActive = link.getAttribute('data-section') === id;
+      link.classList.toggle('active', isActive);
+    });
+  }
+
+  const visibleSections = new Map<string, number>();
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          visibleSections.set(entry.target.id, entry.intersectionRatio);
+        } else {
+          visibleSections.delete(entry.target.id);
+        }
+      });
+
+      if (visibleSections.size > 0) {
+        const mostVisible = [...visibleSections.entries()].reduce((a, b) =>
+          a[1] > b[1] ? a : b
+        );
+        setActive(mostVisible[0]);
+      }
+    },
+    {
+      threshold: [0.2, 0.5, 0.8],
+      rootMargin: '-10% 0px -40% 0px',
+    }
+  );
+
+  sections.forEach(section => {
+    const hasLink = [...navLinks].some(
+      link => link.getAttribute('data-section') === section.id
+    );
+    if (hasLink) observer.observe(section);
+  });
 </script>

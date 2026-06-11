@@ -1,28 +1,46 @@
 ---
 ---
 
-<header id="inicio" class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6 pt-36 pb-20">
-  <div class="blob-left" aria-hidden="true"></div>
-  <div class="blob-right" aria-hidden="true"></div>
+<header id="inicio" class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6 pt-52 pb-20">
+
+  <!-- Fondo con glow cálido desde abajo al centro (estilo Magic UI) -->
+  <div class="glow-bottom" aria-hidden="true"></div>
+
+  <!-- Partículas estilo starfield -->
+  <canvas id="stars-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0" aria-hidden="true"></canvas>
+
+  <!-- Grid de puntos sutil -->
   <div class="dot-grid" aria-hidden="true"></div>
 
-  <div class="relative z-10 max-w-[980px] mx-auto">
+  <div class="relative z-10 max-w-[860px] mx-auto flex flex-col items-center">
+
+    <!-- Badge pill — estilo "Introducing Magic UI Template →" -->
+    <a href="#servicios" class="badge-pill hero-anim mb-10">
+      <span class="badge-icon">✦</span>
+      Soluciones digitales para Costa Rica
+      <span class="badge-arrow">→</span>
+    </a>
+
+    <!-- Headline grande centrada -->
     <h1 class="hero-headline font-bold uppercase text-white">
-      <span class="line block">Tu negocio</span>
-      <span class="line block">merece</span>
-      <span class="line block">mejor tecnología</span>
+     <!-- <span class="line block">Tu negocio</span>
+      <span class="line block">merece</span>-->
+      <span class="line block gradient-text">mejor tecnología</span>
     </h1>
 
-    <p class="hero-anim mx-auto mt-7 max-w-[560px] font-light text-white/60 leading-relaxed tracking-wide">
-      Desarrollamos páginas web, sistemas y automatizaciones<br />
+    <!-- Subtítulo -->
+    <p class="hero-anim mx-auto mt-8 max-w-[520px] font-light text-white/55 leading-relaxed tracking-wide text-[15px]">
+      Desarrollamos páginas web, sistemas y automatizaciones
       para empresas y negocios en Costa Rica.
     </p>
 
-    <div class="hero-anim flex flex-wrap items-center justify-center gap-x-7 gap-y-4 mt-11">
-      <a href="#servicios" class="ghost-button">Ver nuestros servicios</a>
+    <!-- CTAs -->
+    <div class="hero-anim flex flex-wrap items-center justify-center gap-x-6 gap-y-4 mt-10">
+      <a href="#servicios" class="ghost-button">Ver nuestros servicios →</a>
       <a href="#contacto" class="hero-link">Contáctanos</a>
     </div>
 
+    <!-- Stats -->
     <div class="hero-anim inline-flex flex-wrap justify-center gap-x-16 gap-y-8 mt-16 pt-10 border-t border-white/[0.08]">
       <div>
         <div class="stat-value font-bold text-accent" style="font-size: clamp(30px,3vw,40px); line-height:1; letter-spacing:0.5px;">2</div>
@@ -37,69 +55,163 @@
         <div class="mt-2 text-[12px] font-normal uppercase tracking-[1.2px] text-white/40">Satisfacción garantizada</div>
       </div>
     </div>
+
   </div>
 </header>
 
 <style>
-  .blob-left, .blob-right {
+  /* ── Fondo glow cálido desde abajo centro (Magic UI) ── */
+  .glow-bottom {
     position: absolute;
-    border-radius: 50%;
+    bottom: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(ellipse at center bottom, rgba(1, 195, 142, 0.18) 0%, rgba(80, 50, 10, 0.10) 45%, transparent 70%);
+    filter: blur(40px);
     pointer-events: none;
+    z-index: 0;
   }
-  .blob-left {
-    width: 560px; height: 560px;
-    left: -160px; top: 18%;
-    background: radial-gradient(circle, #01c38e, transparent 70%);
-    opacity: 0.08;
-    filter: blur(80px);
-  }
-  .blob-right {
-    width: 640px; height: 640px;
-    right: -200px; bottom: -10%;
-    background: radial-gradient(circle, #132d46, transparent 70%);
-    opacity: 0.15;
-    filter: blur(70px);
-  }
+
+  /* ── Grid de puntos ── */
   .dot-grid {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 28px 28px;
+    z-index: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 30px 30px;
+    /* fade out en los bordes */
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
   }
+
+  /* ── Badge pill ── */
+  .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.045);
+    backdrop-filter: blur(6px);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  }
+  .badge-pill:hover {
+    border-color: rgba(1, 195, 142, 0.4);
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(1, 195, 142, 0.06);
+  }
+  .badge-icon { font-size: 10px; color: #01c38e; }
+  .badge-arrow { color: rgba(255,255,255,0.35); }
+
+  /* ── Headline ── */
   .hero-headline {
-    font-size: clamp(3.2rem, 8.5vw, 80px);
-    line-height: 0.95;
+    font-size: clamp(3.4rem, 9vw, 88px);
+    line-height: 0.93;
     letter-spacing: 1.6px;
     text-wrap: balance;
   }
+
+  /* Última línea con gradiente sutil */
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 30%, rgba(255,255,255,0.55) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Hero link ── */
   .hero-link {
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 1.17px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.60);
+    color: rgba(255,255,255,0.55);
     text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-bottom: 1px solid rgba(255,255,255,0.22);
     padding-bottom: 4px;
     transition: color 0.25s ease, border-color 0.25s ease;
   }
   .hero-link:hover { color: #01c38e; border-color: #01c38e; }
 
+  /* ── Animaciones de entrada ── */
+  @keyframes fade-up-blur {
+    from { opacity: 0; transform: translateY(22px); filter: blur(6px); }
+    to   { opacity: 1; transform: translateY(0);   filter: blur(0); }
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .hero-anim {
       opacity: 0;
-      animation: fade-up-blur 0.7s cubic-bezier(0.25,0.1,0.25,1) forwards;
+      animation: fade-up-blur 0.75s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     }
     .hero-headline .line {
       opacity: 0;
-      animation: fade-up-blur 0.7s cubic-bezier(0.25,0.1,0.25,1) forwards;
+      animation: fade-up-blur 0.75s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     }
-    .hero-headline .line:nth-child(1) { animation-delay: 0.15s; }
-    .hero-headline .line:nth-child(2) { animation-delay: 0.27s; }
-    .hero-headline .line:nth-child(3) { animation-delay: 0.39s; }
-    .hero-anim:nth-of-type(1) { animation-delay: 0.65s; }
-    .hero-anim:nth-of-type(2) { animation-delay: 0.85s; }
-    .hero-anim:nth-of-type(3) { animation-delay: 1.05s; }
+    .hero-headline .line:nth-child(1) { animation-delay: 0.20s; }
+    .hero-headline .line:nth-child(2) { animation-delay: 0.32s; }
+    .hero-headline .line:nth-child(3) { animation-delay: 0.44s; }
+    .hero-anim:nth-of-type(1) { animation-delay: 0.20s; } /* badge */
+    .hero-anim:nth-of-type(2) { animation-delay: 0.70s; } /* subtítulo */
+    .hero-anim:nth-of-type(3) { animation-delay: 0.88s; } /* CTAs */
+    .hero-anim:nth-of-type(4) { animation-delay: 1.06s; } /* stats */
   }
 </style>
+
+<script>
+  // ── Starfield canvas (partículas estilo Magic UI) ──────────
+  const canvas = document.getElementById('stars-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+
+  interface Star {
+    x: number; y: number;
+    r: number; alpha: number;
+    speed: number; dir: number;
+  }
+
+  let stars: Star[] = [];
+  let W = 0, H = 0;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function initStars(count = 130) {
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.1 + 0.2,
+      alpha: Math.random() * 0.5 + 0.1,
+      speed: Math.random() * 0.4 + 0.1,
+      dir: Math.random() > 0.5 ? 1 : -1,
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    stars.forEach(s => {
+      s.alpha += s.speed * 0.012 * s.dir;
+      if (s.alpha >= 0.65 || s.alpha <= 0.05) s.dir *= -1;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  initStars();
+  draw();
+  window.addEventListener('resize', () => { resize(); initStars(); });
+</script>
