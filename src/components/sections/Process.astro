@@ -9,28 +9,32 @@
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1120px] mx-auto">
-    <article class="step-card liquid-glass reveal rounded-2xl p-8" style="--stagger:0;">
+    <article class="step-card liquid-glass reveal rounded-2xl p-8 shine-card" style="--stagger:0;">
+      <div class="shine-border" aria-hidden="true"></div>
       <div class="step-num font-black text-accent/15" style="font-size:clamp(56px,5vw,72px); line-height:1; margin-bottom:16px;">01</div>
       <div class="step-rule"></div>
       <h3 class="text-[14px] font-bold uppercase tracking-[1.35px] text-white mb-3">Nos conocemos</h3>
       <p class="text-[14px] font-light leading-[1.65] text-white/55">Conversamos para entender tu negocio, tus necesidades y lo que querés lograr. Sin tecnicismos, sin compromisos.</p>
     </article>
 
-    <article class="step-card liquid-glass reveal rounded-2xl p-8" style="--stagger:1;">
+    <article class="step-card liquid-glass reveal rounded-2xl p-8 shine-card" style="--stagger:1;">
+      <div class="shine-border" aria-hidden="true"></div>
       <div class="step-num font-black text-accent/15" style="font-size:clamp(56px,5vw,72px); line-height:1; margin-bottom:16px;">02</div>
       <div class="step-rule" style="opacity:0.7;"></div>
       <h3 class="text-[14px] font-bold uppercase tracking-[1.35px] text-white mb-3">Diseñamos la solución</h3>
       <p class="text-[14px] font-light leading-[1.65] text-white/55">Proponemos la solución más adecuada para vos — ya sea una página web, un sistema a medida o una automatización que te ahorre tiempo.</p>
     </article>
 
-    <article class="step-card liquid-glass reveal rounded-2xl p-8" style="--stagger:2;">
+    <article class="step-card liquid-glass reveal rounded-2xl p-8 shine-card" style="--stagger:2;">
+      <div class="shine-border" aria-hidden="true"></div>
       <div class="step-num font-black text-accent/15" style="font-size:clamp(56px,5vw,72px); line-height:1; margin-bottom:16px;">03</div>
       <div class="step-rule" style="opacity:0.5;"></div>
       <h3 class="text-[14px] font-bold uppercase tracking-[1.35px] text-white mb-3">Construimos y entregamos</h3>
       <p class="text-[14px] font-light leading-[1.65] text-white/55">Desarrollamos tu proyecto con atención al detalle, te mostramos el avance y lo entregamos funcionando y listo para usar.</p>
     </article>
 
-    <article class="step-card liquid-glass reveal rounded-2xl p-8" style="--stagger:3;">
+    <article class="step-card liquid-glass reveal rounded-2xl p-8 shine-card" style="--stagger:3;">
+      <div class="shine-border" aria-hidden="true"></div>
       <div class="step-num font-black text-accent/15" style="font-size:clamp(56px,5vw,72px); line-height:1; margin-bottom:16px;">04</div>
       <div class="step-rule step-rule-dim"></div>
       <h3 class="text-[14px] font-bold uppercase tracking-[1.35px] text-white mb-3">Te acompañamos</h3>
@@ -48,5 +52,58 @@
   }
   .step-rule-dim {
     background: rgba(255,255,255,0.15);
+  }
+
+  .shine-card {
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.5s ease;
+  }
+
+  @media (hover: hover) {
+    .shine-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(1, 195, 142, 0.12);
+    }
+  }
+
+  .shine-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: radial-gradient(
+      transparent,
+      transparent,
+      rgba(1, 195, 142, 0.95),
+      rgba(255, 255, 255, 0.5),
+      rgba(1, 195, 142, 0.95),
+      transparent,
+      transparent
+    );
+    background-size: 300% 300%;
+    background-position: 0% 0%;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    will-change: background-position;
+    z-index: 1;
+  }
+
+  @media (hover: hover) {
+    .shine-card:hover .shine-border {
+      opacity: 1;
+      animation: shine 10s linear infinite;
+    }
+  }
+
+  @keyframes shine {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
   }
 </style>
