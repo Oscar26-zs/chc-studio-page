@@ -1,0 +1,83 @@
+---
+---
+
+<section class="relative w-full py-20 md:py-28 overflow-visible flex flex-col items-center justify-center bg-transparent -mt-24 z-10">
+  
+  <!-- Ambient background glow (teal + warm gold) behind the logos -->
+  <div 
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[300px] pointer-events-none z-0" 
+    style="
+      background: radial-gradient(ellipse at center, rgba(1, 195, 142, 0.12) 0%, rgba(80, 50, 10, 0.06) 50%, transparent 80%);
+      filter: blur(50px);
+    " 
+    aria-hidden="true"
+  ></div>
+
+  <!-- Content container -->
+  <div class="relative z-10 w-full max-w-5xl px-6 mx-auto flex flex-col items-center text-center">
+    
+    
+
+    
+  </div>
+
+  <!-- Curved Horizon Divider with Flare at the bottom -->
+  <div class="absolute bottom-0 left-0 w-full overflow-visible pointer-events-none z-10">
+    <div class="relative w-full h-[60px] overflow-visible">
+      
+      <!-- 1. Ambient large glow behind the curve peak -->
+      <div class="absolute top-[35px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[80px] rounded-full bg-accent/15 filter blur-2xl opacity-90"></div>
+      
+      <!-- 2. Interactive/realistic radial lens flare at the exact peak (white center + teal edge) -->
+      <div class="absolute top-[35px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[36px]" style="
+        background: radial-gradient(ellipse at center, rgba(255,255,255,0.95) 0%, rgba(1, 195, 142, 0.45) 25%, rgba(1, 195, 142, 0) 70%);
+        filter: blur(1.5px);
+        opacity: 0.9;
+      "></div>
+      
+      <!-- 3. Horizontal flare glow extension -->
+      <div class="absolute top-[35px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[2px] rounded-full bg-gradient-to-r from-transparent via-accent to-transparent opacity-60 filter blur-[0.5px]"></div>
+      
+      <!-- 4. Pure white core sparkle -->
+      <div class="absolute top-[35px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65px] h-[2px] rounded-full bg-white filter blur-[0.4px] opacity-95"></div>
+      
+      <!-- SVG Curve line -->
+      <svg class="absolute top-0 left-0 w-full h-[60px] overflow-visible" viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="horizon-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#01c38e" stop-opacity="0" />
+            <stop offset="25%" stop-color="#01c38e" stop-opacity="0.25" />
+            <stop offset="50%" stop-color="#01c38e" stop-opacity="1" />
+            <stop offset="75%" stop-color="#01c38e" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#01c38e" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <!-- A gentle convex arc curving upwards peaking at y=35 (since start is 50, control is 20) -->
+        <path d="M 0 50 Q 720 20 1440 50" fill="none" stroke="url(#horizon-gradient)" stroke-width="1.5" />
+      </svg>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  .logo-item:hover {
+    transform: translateY(-2px);
+  }
+  .logo-img {
+    filter: brightness(0) invert(1);
+    opacity: 0.45;
+    transition: opacity 0.3s ease;
+    user-select: none;
+    pointer-events: auto;
+  }
+  .logo-img:hover {
+    opacity: 0.95;
+  }
+</style>
